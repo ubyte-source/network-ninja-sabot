@@ -1,6 +1,6 @@
 FROM amd64/alpine:3.15
 
-ENV STARTUP_COMMAND_RUN_TFTP="/usr/bin/sudo /usr/sbin/in.tftpd --ipv4 --foreground --user sabot --address 0.0.0.0:69 --secure /var/tftpboot --blocksize 1380"
+ENV STARTUP_COMMAND_RUN_TFTP="/usr/sbin/in.tftpd --ipv4 --user sabot --address 0.0.0.0:69 --secure /var/tftpboot --blocksize 1380 --port-range 40000:55000"
 ENV STARTUP_COMMAND_RUN_NODERED="/usr/bin/node /usr/local/lib/node_modules/node-red/red.js --userDir /data | node-red"
 
 ARG TIMEZONE="UTC"
