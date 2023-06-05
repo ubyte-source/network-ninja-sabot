@@ -21,7 +21,7 @@ RUN adduser -D -g sabot sabot && \
 
 RUN npm install -g --unsafe-perm node-red
 
-EXPOSE 1880 69
+EXPOSE 1880/tcp 69/udp 40000-48000/udp
 
 USER sabot
 
