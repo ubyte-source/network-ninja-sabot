@@ -17,7 +17,7 @@ RUN adduser -D -g sabot sabot && \
     chmod +x wrapper.sh && \
     cp -r /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
-    echo 'sabot ALL = NOPASSWD: /usr/bin/nmap /usr/sbin/in.tftpd' >> /etc/sudoers
+    echo 'sabot ALL=(ALL:ALL) NOPASSWD: /usr/bin/nmap /usr/sbin/in.tftpd' >> /etc/sudoers
 
 RUN npm install -g --unsafe-perm node-red
 
