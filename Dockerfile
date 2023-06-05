@@ -15,9 +15,11 @@ COPY wrapper.sh /
 RUN adduser -D -g sabot sabot && \
     chown -R sabot:sabot /home/sabot /usr/local/lib /var/tftpboot && \
     chmod +x wrapper.sh && \
+    touch /etc/sudoers.d/nopasswd && \
     cp -r /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
-    echo 'sabot ALL=(ALL:ALL) NOPASSWD: /usr/bin/nmap /usr/sbin/in.tftpd' >> /etc/sudoers
+    echo 'sabot ALL=NOPASSWD: /usr/bin/nmap' >> /etc/sudoers.d/nopasswd && \
+    echo 'sabot ALL=NOPASSWD: /usr/sbin/in.tftpd' >> /etc/sudoers.d/nopasswd
 
 RUN npm install -g --unsafe-perm node-red
 
