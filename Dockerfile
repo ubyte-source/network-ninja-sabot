@@ -1,6 +1,6 @@
 FROM amd64/alpine:3.15
 
-ENV STARTUP_COMMAND_RUN_TFTP="/usr/sbin/in.tftpd --ipv4 --foreground --user sabot --address 0.0.0.0:6969 --secure /var/tftpboot --blocksize 1380 --port-range 40000:48000"
+ENV STARTUP_COMMAND_RUN_TFTP="/usr/bin/sudo /usr/sbin/in.tftpd --ipv4 --foreground --user sabot --address :69 --secure /var/tftpboot --blocksize 1380 --port-range 40000:48000"
 ENV STARTUP_COMMAND_RUN_NODERED="/usr/bin/node /usr/local/lib/node_modules/node-red/red.js --userDir /data | node-red"
 
 ARG TIMEZONE="UTC"
@@ -21,7 +21,7 @@ RUN adduser -D -g sabot sabot && \
 
 RUN npm install -g --unsafe-perm node-red
 
-EXPOSE 1880 6969
+EXPOSE 1880 69
 
 USER sabot
 
