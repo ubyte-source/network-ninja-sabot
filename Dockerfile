@@ -13,6 +13,7 @@ RUN apk update && \
 COPY wrapper.sh /
 
 RUN adduser -D -g sabot sabot && \
+    mkdir -p /home/sabot/certificate && \
     chown -R sabot:sabot /home/sabot /usr/local/lib /var/tftpboot && \
     chmod +x wrapper.sh && \
     touch /etc/sudoers.d/nopasswd && \
