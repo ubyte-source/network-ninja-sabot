@@ -6,7 +6,7 @@ ENV STARTUP_COMMAND_RUN_NODERED="/usr/bin/node /usr/local/lib/node_modules/node-
 ARG TIMEZONE="UTC"
 
 RUN apk update && \
-    apk add --no-cache sudo nmap sqlite iputils nodejs npm tftp-hpa && \
+    apk add --no-cache sudo nmap sqlite iputils nodejs npm tftp-hpa git ssh-keygen && \
     apk add --no-cache tzdata && \
     rm -rf /var/cache/apk/*
 
